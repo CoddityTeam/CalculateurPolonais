@@ -29,5 +29,7 @@
       - [x] `POST /stack` -> Create and return a stack (Empty body)
       - [x] `PUT /stack/{stack_id}` `body:{"num": int}` -> Add num to stack and return the updated stack (404 if stack not found)
       - [x] `DELETE /stack/{stack_id}` -> Delete the stack (404 if rpn not found)
-  - [ ] Create Swagger doc
+  - [ ] Create OpenApi doc
+    - >Initially, I wanted to use flask restplus or something similar, but when I looked into github repositories, I didn't find something updated recently. So, an analysis of existing frameworks can be preformed to choose one which can generate open api specs automatically. Or a migration to fastapi for automatic open api doc. Or I can write manually the specs but i did not have the time now 
   - [ ] Add Errors handlers
+    - > I Created some exceptions on the service package and on the storage package. Flask can handle those errors to avoid returning 500 status (INTERNAL_SERVER_ERROR) and return 404 when resources is not found or 409 when trying to apply an operand on invalid values (Operand on nothing or divide by zero )
