@@ -1,0 +1,33 @@
+# TODO
+
+- [x] Create git project
+  - [x] Add `.gitignore` for python
+  - [x] Add venv and create `requirements.txt`
+  - [x] Add `flask` and `pytest` dependency
+- [x] Create `OpService`
+  - [x] Create a method to create a stack using TDD
+    - [x] Create a stack model (`id [uuid.v4], values [list[number]]`)
+    - [x] Create an `InMemoryStorage` to store the operand 
+      - Database Schema : `dict[uuid.v4,Stack]`
+  - [x] Create operand Enum -> `+ - / *`
+  - [x] Create operand Service using TDD
+    - [x] Create method to apply operand to a stack -> return the new stack
+      - [x] Verify that we can apply operand
+        - [x] Check if stack length > 2
+        - [x] If operand == "/" -> second element must not be 0
+  - [x] Create a method to update a stack (`def add(self, id:str, values: list[int])`) using TDD
+    - [x] Find the stack to update in the `InMemoryStorage`
+    - [x] Update the stack in the `InMemoryStorage`
+    - [x] Return the updated stack
+  - [x] Create FlaskApp
+    - [ ] Create rpn Router
+    - [x] Add routes to rpn Router
+      - [x] `GET /op` -> Return the list of Operand enum values
+      - [x] `POST /op/{op}/stack/{stack_id}` -> Apply operand on stack and returns the updated stack (404 if stack or op not found, 409 if stack is op is not valid on stack)
+      - [x] `GET /stack` -> Return the stack list
+      - [x] `GET /stack/{stack_id}` -> Return the stack with id stack_id (404 if not found)
+      - [x] `POST /stack` -> Create and return a stack (Empty body)
+      - [x] `PUT /stack/{stack_id}` `body:{"num": int}` -> Add num to stack and return the updated stack (404 if stack not found)
+      - [x] `DELETE /stack/{stack_id}` -> Delete the stack (404 if rpn not found)
+  - [ ] Create Swagger doc
+  - [ ] Add Errors handlers
