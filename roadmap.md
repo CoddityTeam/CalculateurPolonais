@@ -12,4 +12,6 @@
 - Add Parenthesis support on stack
 - Add filters and pagination on GET /stacks 
 - Add complex number suppport 
-- 
+- Add integration test
+- Add CI/CD for automatic testing and deployments
+- Add docker support for deployements

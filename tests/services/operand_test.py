@@ -27,26 +27,26 @@ def test_get_all_operand(service: OperandService):
     assert operand_list == ["+","-","*","/"]
 
 def test_apply_operand_plus_should_return_updated_stack(service: OperandService, valid_stack_for_op):
-    res = service.apply(valid_stack_for_op, Operand.ADD)
+    res = service.apply(valid_stack_for_op, Operand.ADD.value)
     assert isinstance(res, Stack)
     assert res.id == "id"
     assert res.values == [230, 15]
     
 def test_apply_operand_minus_should_return_updated_stack(service: OperandService, valid_stack_for_op):
-    res = service.apply(valid_stack_for_op, Operand.SUBSTRACT)
+    res = service.apply(valid_stack_for_op, Operand.SUBSTRACT.value)
     assert isinstance(res, Stack)
     assert res.id == "id"
     assert res.values == [230, 5]
 
     
 def test_apply_operand_multiply_should_return_updated_stack(service: OperandService, valid_stack_for_op):
-    res = service.apply(valid_stack_for_op, Operand.MULTIPLY)
+    res = service.apply(valid_stack_for_op, Operand.MULTIPLY.value)
     assert isinstance(res, Stack)
     assert res.id == "id"
     assert res.values == [230, 50]
 
 def test_apply_operand_divide_should_return_updated_stack(service: OperandService, valid_stack_for_op):
-    res = service.apply(valid_stack_for_op, Operand.DIVIDE)
+    res = service.apply(valid_stack_for_op, Operand.DIVIDE.value)
     assert isinstance(res, Stack)
     assert res.id == "id"
     assert res.values == [230, 2]
