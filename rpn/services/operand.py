@@ -9,22 +9,19 @@ class OperandService:
     
     def apply(self, stack: Stack, op: Operand):
         self._check_op_validity(stack.values, op)
-        if op == Operand.ADD:
-            values = stack.values
+        if op == Operand.ADD.value:
             new_values = stack.values[:-2] + [stack.values[-1] + stack.values[-2]]
             return Stack(id=stack.id, values= new_values)
-        if op == Operand.SUBSTRACT:
-            values = stack.values
+        if op == Operand.SUBSTRACT.value:
             new_values = stack.values[:-2] + [stack.values[-2] - stack.values[-1]]
             return Stack(id=stack.id, values= new_values)
-        if op == Operand.MULTIPLY:
-            values = stack.values
+        if op == Operand.MULTIPLY.value:
             new_values = stack.values[:-2] + [stack.values[-2] * stack.values[-1]]
             return Stack(id=stack.id, values= new_values)
-        if op == Operand.DIVIDE:
-            values = stack.values
+        if op == Operand.DIVIDE.value:
             new_values = stack.values[:-2] + [stack.values[-2] / stack.values[-1]]
             return Stack(id=stack.id, values= new_values)
+        print(op)
     
     def _check_op_validity(self, values: list[int], op: Operand):
         if len(values)< 2:
