@@ -1,5 +1,6 @@
 # TODO
-
+- [ ] Add docstring to api
+  - > I did not have the time to write the documentations during the tests.
 - [x] Create git project
   - [x] Add `.gitignore` for python
   - [x] Add venv and create `requirements.txt`
